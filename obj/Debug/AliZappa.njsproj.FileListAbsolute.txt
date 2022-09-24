@@ -1,0 +1,3 @@
+C:\Users\AsafEitani\source\repos\AliZappa\obj\Debug\AliZappa.njsprojAssemblyReference.cache
+C:\Users\AsafEitani\source\repos\AliZappa\obj\Debug\AliZappa.njsproj.CoreCompileInputs.cache
+C:\Users\AsafEitani\source\repos\AliZappa\bin\Microsoft.NodejsTools.WebRole.dll
