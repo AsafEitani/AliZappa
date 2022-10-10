@@ -1,0 +1,62 @@
+:root {
+    --background-white: hsl(0, 0%, 100%);
+    --background-light-grey-1: hsl(0, 0%, 93%);
+    --border-light-grey-2: hsl(0, 2%, 67%);
+    --box-shadow-black: rgba(0, 0, 0, 0.25);
+    --text-black: hsl(0, 0%, 0%);
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--background-light-grey-1)
+}
+
+.cart {
+    background: var(--background-white)
+}
+
+.p-about {
+    font-size: 12px
+}
+
+.payment-info {
+    padding: 10px;
+    border-radius: 6px;
+    color: var(--text-black);
+    font-weight: bold
+}
+
+.items {
+    -webkit-box-shadow: 5px 5px 4px -1px var(--box-shadow-black);
+    box-shadow: 5px 5px 4px -1px var(--box-shadow-black);
+}
+
+.spec {
+    font-size: 11px
+}
+
+.rm-lr-col-pad {
+    padding: 0;
+}
+
+.tb-pad {
+    padding: 2.5px 0;
+}
+
+.total-price{
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 20px;
+    
+}
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
