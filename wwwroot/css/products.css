@@ -1,15 +1,19 @@
-﻿.product {
+﻿.product
+{
     border: hidden;
 }
 
-.price-input {
+.price-input
+{
     border:hidden;
 }
 
-.select-box {
+.select-box
+{
     border: hidden;
 }
 
-.checked {
-    color: orange;
+.checked
+{
+    color: blue;
 }
