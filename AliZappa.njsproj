@@ -30,14 +30,46 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.js" />
+    <Content Include="public\stylesheets\admin.css" />
+    <Content Include="public\stylesheets\bootstrap-grid.css" />
+    <Content Include="public\stylesheets\bootstrap-grid.min.css" />
+    <Content Include="public\stylesheets\bootstrap-reboot.css" />
+    <Content Include="public\stylesheets\bootstrap-reboot.min.css" />
+    <Content Include="public\stylesheets\bootstrap.css" />
+    <Content Include="public\stylesheets\bootstrap.min.css" />
+    <Content Include="public\stylesheets\cart.css" />
+    <Content Include="public\stylesheets\home-page.css" />
+    <Content Include="public\stylesheets\login.css" />
+    <Content Include="public\stylesheets\not in use.css" />
+    <Content Include="public\stylesheets\products.css" />
+    <Content Include="public\stylesheets\shared-style.css" />
+    <Content Include="public\stylesheets\style.css" />
     <Content Include="routes\index.js" />
     <Content Include="routes\users.js" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <Content Include="views\admin_details_products.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\admin_login.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\admin_products.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\empty_layout.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
+    <Content Include="views\admin.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\layout_noheader.pug">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\" />

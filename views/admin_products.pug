@@ -1,0 +1,49 @@
+extends empty_layout
+block layout-content
+  h1 Index
+  script.
+    $('.Details').click(function() {
+        var elmId = $(this).attr("id");
+        getDetails(elmId);
+    });
+  
+    function getDetails(id) {
+        $.get('/Products/details', {
+            "id": id
+        }, function(data, status) {
+            $('#getitem').html(data);
+        })
+    }
+    $('#btn-filter').click(test);
+  
+    function test() {
+        var Stringvalue = $('#search-head').val();
+        var Sizevalue = $('#colors').val().html;
+        var conceptName = $('#colors').find(":selected").text();
+        $.get('/Products/index', {
+            searchColor: conceptName,
+            searchString: Stringvalue
+        }, function(data, status) {
+            $('body').html(data);
+        })
+    }
+  p
+    a(asp-action='Create') Create New
+  p
+    | Name of Product: 
+    input#search-head(type='text' name='SearchString')
+    select#colors(name='colors')
+      option(value='All') All
+        each item in products_test
+          option(value=item.ProductColor) #{item.ProductColor}
+    input#btn-filter(type='button' value='Filter')
+  .row.row-cols-1.row-cols-md-4.g-4
+    each item in products_test
+      .col
+        .card
+          img.card-img-top(src='/images/'+item.ProductImage width='20' height='160' alt='...')
+          .card-body
+            h5.card-title #{item.ProductName}
+            p.card-text #{item.ProductPrice}$
+            button.btn.btn-primary.Details(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal' id=item.ProductID)
+              | Details
