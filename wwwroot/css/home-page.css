@@ -1,4 +1,5 @@
-:root {
+:root
+{
     --btn-animation-shadow: hsla(0, 0%, 0%, .2);
     --column-rule: hsl(0, 0%, 28%);
     --btn-red: hsl(359, 68%, 36%);
@@ -9,57 +10,71 @@
 
 *,
 *::after,
-*::before {
+*::before
+{
     margin: 0;
     padding: 0;
     box-sizing: inherit;
 }
 
-html {
+html
+{
     /* Defines what 1 rem is */
     font-size: 62.5%; /* 1rem = 10px */
 }
 
-@media only screen and (max-width: 56.25em) /* 900px */ {
-    html {
+@media only screen and (max-width: 56.25em) /* 900px */
+{
+    html
+    {
         font-size: 50%; /* 1rem = 8px */
     }
 
-    .intro {
+    .intro
+    {
         column-gap: 1rem !important;
     }
 
-    .intro-left {
+    .intro-left
+    {
         padding: 5rem 0 !important;
     }
 
-    .intro-right {
+    .intro-right
+    {
         padding: 5rem 0;
     }
 
-    .intro-right-img {
+    .intro-right-img
+    {
         height: 25rem;
     }
 
-    .featured-hats {
+    .featured-hats
+    {
         padding: 0 !important;
     }
 }
 
-@media only screen and (max-width: 75em) /* 900px */ {
-    html {
+@media only screen and (max-width: 75em) /* 900px */
+{
+    html
+    {
         font-size: 56.25%; /* 1rem = 9px */
     }
 }
 
-@media only screen and (max-width: 112.5em) /* 1800px */ {
-    html {
+@media only screen and (max-width: 112.5em) /* 1800px */
+{
+    html
+    {
         font-size: 75%; /* 1rem = 12px */
     }
 }
 
 /* roboto-regular - latin */
-@font-face {
+@font-face
+{
     font-family: 'myRoboto';
     font-style: normal;
     font-weight: 400;
@@ -71,33 +86,40 @@ html {
     url('../Fonts/Roboto/roboto-v29-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
-main {
+main
+{
     font-family: 'Roboto';
 }
 
-section {
+section
+{
     margin-bottom: 5rem;
 }
 
-.primary-color {
+.primary-color
+{
     background: var(--primary-color);
 }
 
-.text-color {
+.text-color
+{
     color: var(--forth-color);
 }
 
-.container {
+.container
+{
     padding: 9rem 4rem;
 }
 
-.intro {
+.intro
+{
     display: flex;
     justify-content: space-evenly;
     column-gap: 13rem;
 }
 
-.intro-left {
+.intro-left
+{
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
@@ -105,17 +127,20 @@ section {
     font-family: 'Roboto';
 }
 
-.intro-left-shop-title {
+.intro-left-shop-title
+{
     font-size: 2.5rem;
     font-family: 'myRoboto';
 }
 
-.intro-left-shop-sub-title {
+.intro-left-shop-sub-title
+{
     font-size: 1.5rem;
     font-weight: 400;
 }
 
-.btn {
+.btn
+{
     padding: 1.5rem 0;
     border-radius: 100px;
     border: none;
@@ -127,23 +152,27 @@ section {
     color: var(--btn-text);
 }
 
-.intro-left-cta {
+.intro-left-cta
+{
     font-size: 1.5rem;
 }
 
-    .intro-left-cta:hover {
+    .intro-left-cta:hover
+{
         transform: translateY(-.3rem);
         box-shadow: 0 1rem 2rem var(--btn-animation-shadow);
     }
 
-.tertiary-title {
+.tertiary-title
+{
     font-family: 'myRoboto';
     font-size: 2.5rem;
     text-align: center;
     padding: 2rem 0;
 }
 
-.about-vision-p {
+.about-vision-p
+{
     padding: 3rem 5rem;
     font-size: 1.6rem;
     column-count: 3;
@@ -152,21 +181,25 @@ section {
 }
 
 .about,
-.featured-hats {
+.featured-hats
+{
     padding: 0 10rem;
 }
 
-.featured-hats-title {
+.featured-hats-title
+{
     padding-bottom: 4rem;
 }
 
-.featured-hats-grid {
+.featured-hats-grid
+{
     display: flex;
     justify-content: space-between;
     padding: 0 5rem;
 }
 
-.featured-hats-grid-item {
+.featured-hats-grid-item
+{
     padding: 2rem 0;
     width: 10rem;
     display: flex;
@@ -174,27 +207,32 @@ section {
     row-gap: 1rem;
 }
 
-.featured-hats-grid-item-img {
+.featured-hats-grid-item-img
+{
     height: 10rem;
 }
 
-.featured-hats-grid-item-name {
+.featured-hats-grid-item-name
+{
     font-size: 1.6rem;
     font-weight: 400;
     text-align: center;
 }
 
-.featured-hats-grid-item-btn {
+.featured-hats-grid-item-btn
+{
     padding: 1rem 2.5rem;
 }
 
-.location-branches {
+.location-branches
+{
     display: flex;
     padding: 2rem 5rem;
     gap: 1rem;
 }
 
-.branches-list {
+.branches-list
+{
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -204,33 +242,39 @@ section {
     border: solid 1px black;
 }
 
-.branch-btn {
+.branch-btn
+{
     padding: 2rem;
     border: solid 1px black;
     background-color: var(--btn-grey);
     transition: .2s;
 }
 
-    .branch-btn:hover {
-        background-color: var(--btn-red);
-    }
+.branch-btn:hover
+{
+    background-color: var(--btn-red);
+}
 
-.loaction-map {
+.loaction-map
+{
     height: 40rem;
     width: 80%;
 }
 
-.canvas {
+.canvas
+{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.canvas-tophat {
+.canvas-tophat
+{
     height: 10rem;
     width: 30rem;
 }
 
-.video {
+.video
+{
     width: 62rem;
 }
