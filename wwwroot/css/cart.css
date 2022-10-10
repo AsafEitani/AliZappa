@@ -1,4 +1,5 @@
-:root {
+:root
+{
     --background-white: hsl(0, 0%, 100%);
     --background-light-grey-1: hsl(0, 0%, 93%);
     --border-light-grey-2: hsl(0, 2%, 67%);
@@ -8,54 +9,65 @@
 
 *,
 *::after,
-*::before {
+*::before
+{
     margin: 0;
     padding: 0;
 }
 
-body {
+body
+{
     background: var(--background-light-grey-1)
 }
 
-.cart {
+.cart
+{
     background: var(--background-white)
 }
 
-.p-about {
+.p-about
+{
     font-size: 12px
 }
 
-.payment-info {
+.payment-info
+{
     padding: 10px;
     border-radius: 6px;
     color: var(--text-black);
     font-weight: bold
 }
 
-.items {
+.items
+{
     -webkit-box-shadow: 5px 5px 4px -1px var(--box-shadow-black);
     box-shadow: 5px 5px 4px -1px var(--box-shadow-black);
 }
 
-.spec {
+.spec
+{
     font-size: 11px
 }
 
-.rm-lr-col-pad {
+.rm-lr-col-pad
+{
     padding: 0;
 }
 
-.tb-pad {
+.tb-pad
+{
     padding: 2.5px 0;
 }
 
-.total-price{
+.total-price
+{
     font-family: "Roboto";
     font-weight: 400;
     font-size: 20px;
-    
 }
-.cart-items {
+
+.cart-items
+{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
