@@ -41,7 +41,13 @@ module.exports = router;
 =======
 router.get('/admin_details_products', function (req, res) {
   res.render('admin_details_products', {
-    title: 'Admin Products', products_test: products_test
+    title: 'Admin Products Details', products_test: products_test
+  });
+});
+
+router.get('/create_product', function (req, res) {
+  res.render('create_product', {
+    title: 'Create Product', products_test: products_test
   });
 });
 
