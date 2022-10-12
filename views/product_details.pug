@@ -1,0 +1,123 @@
+extends mylayout
+
+block layout-content
+  doctype html
+  title Details
+  | var cart_id = HttpContextAccessor.HttpContext.Request.Cookies['cart_id'];
+  link(rel='stylesheet' href='/stylesheets/products.css')
+  // Add icon library
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/stylesheets/shared-style.css')
+
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Tutorial
+    // Fonts
+    link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet')
+    // Icons
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    // CSS
+    link(rel='stylesheet' href='/stylesheets/style.css')
+  #Itemdetails
+    main.container
+      // Left Column / Headphones Image
+      .left-column
+        img.active(data-image='red' src='/images/'+products_test[0].ProductImage alt='')
+      // Right Column
+      .right-column
+        // Product Description
+        .product-description
+          h1 #{products_test[0].ProductName}
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet tempora dolore tempore, molestias
+            | beatae ipsam nemo et praesentium. Consequuntur, placeat!
+        // Product Configuration
+        .product-configuration
+          // Hat Sizes
+          .hat-size-config
+            span Hat Size
+            .size-choose
+              button.small-size S
+              button.medium-size M
+              button.large-size L
+        // Product Pricing
+        .product-price
+          span Price: 
+          span#price #{products_test[0].ProductPrice}
+          span
+            select.nav-link.select-box(aria-labelledby='navbarDropdown' onchange='convertCurrency(this)')
+              option(value='ILS') ILS
+              option(value='USD') USD
+        // Rating
+        #rating.product-rating
+          span Rating: 
+        .add-to-cart
+          button#addcart.btn.cart-btn Add to cart
+  script.
+    $('#addcart').click(function () {
+    if (cart_id == null) {
+      text
+        alert("you need to login first");
+        window.location.replace("/home/login");
+    }
+    else {
+      text
+      $.get('/carts/addproduct',
+      {
+      'cartid': cart_id ,
+      'productid': products_test[0].ProductID,
+      'size': size
+      }).fail(function () {
+      alert('sold out.');
+      }).done(function () {
+      alert("added to cart");
+      })
+    }
+    });
+    // convert currency
+    function convertCurrency(curr) {
+    var selected = curr.value;
+    var amount = $("#price")[0].innerText;
+    var result;
+    fetch(`https://free.currconv.com/api/v7/convert?q=USD_ILS&compact=ultra&apiKey=55188a61473d21f7818f`)
+    .then(response => response.json())
+    .then(data => {
+    if (selected === "USD") {
+    result = amount / data["USD_ILS"];
+    }
+    else {
+    result = amount * data["USD_ILS"];
+    }
+    $('#price')[0].innerText = result.toFixed(2);
+    });
+    }
+    var rating = #{products_test[0].ProductRating};
+    console.log(rating);
+    var i, j;
+    for (i = 0; i < rating; i++) {
+    const span = document.createElement("span");
+    span.className = "fa fa-star checked";
+    const element = document.getElementById("rating");
+    element.appendChild(span);
+    }
+    for (j = i; j < 5; j++) {
+    const span = document.createElement("span");
+    span.className = "fa fa-star";
+    const element = document.getElementById("rating");
+    element.appendChild(span);
+    }
+  script.
+    var size = "";
+    $('.small-size').click(small);
+    function small() {
+    size = "S";
+    }
+    $('.medium-size').click(medium);
+    function medium() {
+    size = "M";
+    }
+    $('.large-size').click(large);
+    function large() {
+    size = "L";
+    }

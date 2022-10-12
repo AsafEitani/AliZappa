@@ -1,0 +1,55 @@
+doctype html
+| @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+| @{
+| var cart_id = HttpContextAccessor.HttpContext.Request.Cookies[&quot;cart_id&quot;];
+| var admin = HttpContextAccessor.HttpContext.Request.Cookies[&quot;AshProgHelpCookie&quot;];
+| }
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title #{title} - AliZappa
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css')
+  // Fonts
+  link(href='https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='/stylesheets/shared-style.css')
+  script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+  script(src='/javascript/site.js' asp-append-version='true')
+header
+  nav.navbar.sticky
+    .title
+      p.site-name AliZappa
+    .nav-links
+      a.nav-link.text-dark(asp-area='' asp-controller='Home' asp-action='Index') Home
+      a.nav-link.text-dark(asp-area='' asp-controller='Products' asp-action='') Catalogue
+    .nav-utils
+      form.utils-search
+        input.search-bar(type='text' placeholder='Search...')
+        button.search-submit(type='button')
+          svg.search-submit__icon
+            use(xlink:href='images/symbol-defs.svg#icon-search')
+
+              if cart_id == null && admin == null
+                a.utils-cart(asp-area='' asp-controller='home' asp-action='login') login
+                a.utils-cart(asp-area='' asp-controller='customers' asp-action='CustomerCreate') signup
+              else if (admin != null && cart_id == null)
+                a.utils-cart(asp-area='' asp-controller='admin' asp-action='adminpage') Admin Page
+                a.utils-cart(asp-area='' asp-controller='home' asp-action='logout') logout
+              else
+                a.utils-cart(asp-area='' asp-controller='home' asp-action='logout') logout
+                a(href='/carts/mycart?id='+cart_id)
+                  svg.cart-icon
+                    use(xlink:href='images/symbol-defs.svg#icon-cart')
+                  span.cart-item-count cart   
+.container
+  main.pb-3(role='main')
+    block layout-content
+footer
+  .container.footer_container
+    .title
+      p.site-name AliZappa
+    p.copyright
+      | &copy; 2021 - AliZappa
+
