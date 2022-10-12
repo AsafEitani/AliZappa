@@ -113,7 +113,13 @@
     <Content Include="views\product_details.pug">
       <SubType>Code</SubType>
     </Content>
+<<<<<<< HEAD
 >>>>>>> aff32f1 (add product details page)
+=======
+    <Content Include="views\product_index.pug">
+      <SubType>Code</SubType>
+    </Content>
+>>>>>>> 10b3a73 (add products index page)
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\" />
