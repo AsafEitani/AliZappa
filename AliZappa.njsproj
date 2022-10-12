@@ -30,6 +30,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.js" />
+    <Content Include="public\Fonts\Roboto\roboto-v29-latin-regular.eot" />
+    <Content Include="public\Fonts\Roboto\roboto-v29-latin-regular.svg" />
+    <Content Include="public\Fonts\Roboto\roboto-v29-latin-regular.ttf" />
+    <Content Include="public\Fonts\Roboto\roboto-v29-latin-regular.woff" />
+    <Content Include="public\Fonts\Roboto\roboto-v29-latin-regular.woff2" />
     <Content Include="public\javascript\additional-methods.js" />
     <Content Include="public\javascript\additional-methods.min.js" />
     <Content Include="public\javascript\bootstrap.bundle.js" />
@@ -73,6 +78,9 @@
     <Content Include="views\admin_products.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\create_product.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\empty_layout.pug">
       <SubType>Code</SubType>
     </Content>
@@ -90,6 +98,9 @@
     <Folder Include="models\" />
     <Folder Include="controllers\" />
     <Folder Include="public\" />
+    <Folder Include="public\Fonts\" />
+    <Folder Include="public\Fonts\Roboto\" />
+    <Folder Include="public\images\" />
     <Folder Include="public\javascript\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
