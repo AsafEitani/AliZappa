@@ -1,6 +1,5 @@
 extends layout_noheader
 block layout-head
-  script(src='https://code.jquery.com/jquery-1.11.0.min.js')
   style.
     .sidebar {
     margin: 0;
@@ -103,5 +102,5 @@ block layout-content
         $.get('/statistics/ByProduct', {}, function(data, status) {
             $("#maindiv").html(data);
         })
-    } |
-    }
+    } 
+    

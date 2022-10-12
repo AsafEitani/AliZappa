@@ -2,13 +2,21 @@
 var express = require('express');
 var router = express.Router();
 
-const products_test = [{
-  ProductName: "Guitar 3000",
-  ProductColor: "red",
-  ProductPrice: "123",
-  ProductID: "1",
-  ProductImage: "img"
-}]
+const products_test = [
+  {
+    ProductName: "Guitar 3000",
+    ProductColor: "red",
+    ProductPrice: "1000",
+    ProductID: "1",
+    ProductImage: "img"
+  },
+  {
+    ProductName: "Guitar 4000",
+    ProductColor: "blue",
+    ProductPrice: "1500",
+    ProductID: "2",
+    ProductImage: "img2"
+  }]
 
 /* GET home page. */
 router.get('/', function (req, res) {

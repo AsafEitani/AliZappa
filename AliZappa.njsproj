@@ -30,6 +30,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.js" />
+    <Content Include="public\javascript\additional-methods.js" />
+    <Content Include="public\javascript\additional-methods.min.js" />
+    <Content Include="public\javascript\bootstrap.bundle.js" />
+    <Content Include="public\javascript\bootstrap.bundle.min.js" />
+    <Content Include="public\javascript\bootstrap.js" />
+    <Content Include="public\javascript\bootstrap.min.js" />
+    <Content Include="public\javascript\home-page-map-script.js" />
+    <Content Include="public\javascript\jquery.js" />
+    <Content Include="public\javascript\jquery.min.js" />
+    <Content Include="public\javascript\jquery.validate.js" />
+    <Content Include="public\javascript\jquery.validate.min.js" />
+    <Content Include="public\javascript\jquery.validate.unobtrusive.js" />
+    <Content Include="public\javascript\jquery.validate.unobtrusive.min.js" />
+    <Content Include="public\javascript\script.js" />
+    <Content Include="public\javascript\site.js" />
     <Content Include="public\stylesheets\admin.css" />
     <Content Include="public\stylesheets\bootstrap-grid.css" />
     <Content Include="public\stylesheets\bootstrap-grid.min.css" />
@@ -75,8 +90,7 @@
     <Folder Include="models\" />
     <Folder Include="controllers\" />
     <Folder Include="public\" />
-    <Folder Include="public\images\" />
-    <Folder Include="public\javascripts\" />
+    <Folder Include="public\javascript\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
