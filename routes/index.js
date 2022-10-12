@@ -83,4 +83,10 @@ router.get('/product_index', function (req, res) {
   });
 });
 
+router.get('/prodadmin', function (req, res) {
+  res.render('prodadmin', {
+    title: 'Product Admin', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
 module.exports = router;

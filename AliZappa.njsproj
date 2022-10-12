@@ -102,6 +102,9 @@
     <Content Include="views\mylayout.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\prodadmin.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\product_details.pug">
       <SubType>Code</SubType>
     </Content>
