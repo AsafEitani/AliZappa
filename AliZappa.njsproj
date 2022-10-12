@@ -89,6 +89,9 @@
     <Content Include="views\delete_product.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\edit_product.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\empty_layout.pug">
       <SubType>Code</SubType>
     </Content>

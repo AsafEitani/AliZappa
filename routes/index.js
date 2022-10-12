@@ -71,5 +71,15 @@ router.get('/product_details', function (req, res) {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
 >>>>>>> aff32f1 (add product details page)
+=======
+router.get('/edit_product', function (req, res) {
+  res.render('edit_product', {
+    title: 'Edit Product', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
+module.exports = router;
+>>>>>>> 1cce62b (add edit product page)
