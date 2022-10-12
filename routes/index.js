@@ -77,4 +77,10 @@ router.get('/edit_product', function (req, res) {
   });
 });
 
+router.get('/product_index', function (req, res) {
+  res.render('product_index', {
+    title: 'Index', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
 module.exports = router;
