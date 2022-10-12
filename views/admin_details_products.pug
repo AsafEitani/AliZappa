@@ -1,0 +1,48 @@
+extends layout_noheader
+block layout-content
+  h1 AdminDetails
+  div
+    h4 Product
+    hr
+    each item in products_test
+      dl.row
+        dt.col-sm-2
+          | ProductName
+        dd.col-sm-10
+          | #{item.ProductName}
+        dt.col-sm-2
+          | ProductID
+        dd.col-sm-10
+          | #{item.ProductID}
+        dt.col-sm-2
+          | SupplierID
+        dd.col-sm-10
+          | #{item.SupplierID}
+        dt.col-sm-2
+          | ProductColor
+        dd.col-sm-10
+          | #{item.ProductColor}
+        dt.col-sm-2
+          | ProductRating
+        dd.col-sm-10
+          | #{item.ProductRating}
+        dt.col-sm-2
+          | ProductPrice
+        dd.col-sm-10
+          | #{item.ProductPrice}
+        dt.col-sm-2
+          | ProductImage
+        dd.col-sm-10
+          img.card-img-top(src='/images/'+item.ProductImage width='20' height='160' alt='...')
+        dt.col-sm-2
+          | ProductQuantityS
+        dd.col-sm-10
+          | #{item.ProductQuantityS}
+        dt.col-sm-2
+          | ProductQuantityM
+        dd.col-sm-10
+          | #{item.ProductQuantityM}
+        dt.col-sm-2
+          | ProductQuantityL
+        dd.col-sm-10
+          | #{item.ProductQuantityL}
