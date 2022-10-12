@@ -91,5 +91,15 @@ router.get('/product_index', function (req, res) {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
 >>>>>>> 10b3a73 (add products index page)
+=======
+router.get('/prodadmin', function (req, res) {
+  res.render('prodadmin', {
+    title: 'Product Admin', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
+module.exports = router;
+>>>>>>> 5f60c87 (add product admin page)
