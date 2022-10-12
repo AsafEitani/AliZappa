@@ -59,4 +59,10 @@ router.get('/create_product', function (req, res) {
   });
 });
 
+router.get('/delete_product', function (req, res) {
+  res.render('delete_product', {
+    title: 'Delete Product', products_test: products_test
+  });
+});
+
 module.exports = router;
