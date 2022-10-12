@@ -65,4 +65,10 @@ router.get('/delete_product', function (req, res) {
   });
 });
 
+router.get('/product_details', function (req, res) {
+  res.render('product_details', {
+    title: 'Product Details', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
 module.exports = router;
