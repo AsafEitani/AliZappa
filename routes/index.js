@@ -61,5 +61,15 @@ router.get('/delete_product', function (req, res) {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
 >>>>>>> 3fe524b (add delete_product page)
+=======
+router.get('/product_details', function (req, res) {
+  res.render('product_details', {
+    title: 'Product Details', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
+module.exports = router;
+>>>>>>> aff32f1 (add product details page)

@@ -96,6 +96,21 @@
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
+<<<<<<< HEAD
+=======
+    <Content Include="views\admin.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\layout_noheader.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\mylayout.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\product_details.pug">
+      <SubType>Code</SubType>
+    </Content>
+>>>>>>> aff32f1 (add product details page)
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\" />

@@ -1,9 +1,4 @@
 doctype html
-| @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
-| @{
-| var cart_id = HttpContextAccessor.HttpContext.Request.Cookies[&quot;cart_id&quot;];
-| var admin = HttpContextAccessor.HttpContext.Request.Cookies[&quot;AshProgHelpCookie&quot;];
-| }
 head
   meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
@@ -30,19 +25,18 @@ header
         button.search-submit(type='button')
           svg.search-submit__icon
             use(xlink:href='images/symbol-defs.svg#icon-search')
-
-              if cart_id == null && admin == null
-                a.utils-cart(asp-area='' asp-controller='home' asp-action='login') login
-                a.utils-cart(asp-area='' asp-controller='customers' asp-action='CustomerCreate') signup
-              else if (admin != null && cart_id == null)
-                a.utils-cart(asp-area='' asp-controller='admin' asp-action='adminpage') Admin Page
-                a.utils-cart(asp-area='' asp-controller='home' asp-action='logout') logout
-              else
-                a.utils-cart(asp-area='' asp-controller='home' asp-action='logout') logout
-                a(href='/carts/mycart?id='+cart_id)
-                  svg.cart-icon
-                    use(xlink:href='images/symbol-defs.svg#icon-cart')
-                  span.cart-item-count cart   
+      if !cart_id && !admin
+        a.utils-cart(asp-area='' asp-controller='home' asp-action='login') login
+        a.utils-cart(asp-area='' asp-controller='customers' asp-action='CustomerCreate') signup
+      else if admin && !cart_id
+        a.utils-cart(asp-area='' asp-controller='admin' asp-action='adminpage') Admin Page
+        a.utils-cart(asp-area='' asp-controller='home' asp-action='logout') logout
+      else
+        a.utils-cart(asp-area='' asp-controller='home' asp-action='logout') logout
+        a(href='/carts/mycart?id='+cart_id)
+          svg.cart-icon
+            use(xlink:href='images/symbol-defs.svg#icon-cart')
+          span.cart-item-count cart   
 .container
   main.pb-3(role='main')
     block layout-content
@@ -51,5 +45,5 @@ footer
     .title
       p.site-name AliZappa
     p.copyright
-      | &copy; 2021 - AliZappa
+      | &copy; 2022 - AliZappa
 
