@@ -145,4 +145,10 @@ router.get('/supplier_details', function (req, res) {
   });
 });
 
+router.get('/statistics', function (req, res) {
+  res.render('statistics/statistics', {
+    title: 'AliZappa - Statistics', suppliers_test: suppliers_test, cart_id: "1", admin: null
+  });
+});
+
 module.exports = router;
