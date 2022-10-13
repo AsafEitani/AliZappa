@@ -95,7 +95,13 @@
     <Content Include="views\empty_layout.pug">
       <SubType>Code</SubType>
     </Content>
+<<<<<<< HEAD
 >>>>>>> 35ba324 (add create_product page)
+=======
+    <Content Include="views\home.pug">
+      <SubType>Code</SubType>
+    </Content>
+>>>>>>> b2cc590 (add home page)
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />

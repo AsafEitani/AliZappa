@@ -101,5 +101,15 @@ router.get('/prodadmin', function (req, res) {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
 >>>>>>> 5f60c87 (add product admin page)
+=======
+router.get('/home', function (req, res) {
+  res.render('home', {
+    title: 'AliZappa', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
+module.exports = router;
+>>>>>>> b2cc590 (add home page)
