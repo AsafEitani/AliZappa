@@ -102,6 +102,9 @@
     <Content Include="views\layout_noheader.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\login.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\mylayout.pug">
       <SubType>Code</SubType>
     </Content>

@@ -95,4 +95,10 @@ router.get('/home', function (req, res) {
   });
 });
 
+router.get('/login', function (req, res) {
+  res.render('login', {
+    title: 'AliZappa - Login', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
 module.exports = router;
