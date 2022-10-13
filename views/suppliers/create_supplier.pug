@@ -1,0 +1,29 @@
+extends ../layouts/layout_noheader
+block layout-content
+  h1 Create
+  h4 Supplier
+  .row
+    .col-md-4
+      label(for='fname') SupplierName
+      input#SupplierName(type='text' name='fname')
+      br
+      br
+      label(for='lname') SupplierPhoneNumber
+      input#SupplierPhoneNumber(type='text' name='lname')
+      br
+      br
+      label(for='s') SupplierProducts List Will be Shown but Entered Via the Product TAB
+      input#btn.btn.btn-primary(type='button' value='Save')
+  script.
+    $('#btn').click(function () {
+    var elmId = $(this).attr("id");
+    //getDetails(elmId);
+    send();
+    });
+    function send() {
+    $.post("/create_supplier", { SupplierID: $('#SupplierID').val(), SupplierName: $('#SupplierName').val(), SupplierPhonNumber: $('#SupplierPhoneNumber').val() }, function (data) {
+    $("#maindiv").html(data);
+    });
+    }
+
+  
