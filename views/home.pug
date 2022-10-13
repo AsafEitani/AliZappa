@@ -1,0 +1,74 @@
+extends mylayout
+block layout-content
+  // Fonts
+  link(href='https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap' rel='stylesheet')
+  // Style Sheets
+  link(rel='stylesheet' href='/stylesheets/bootstrap.min.css')
+  link(rel='stylesheet' href='/stylesheets/home-page.css')
+  script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBbVRedWria7VHa8jmfOj-0X_Y5-JMww24&callback=initMap&libraries=&v=weekly' async='')
+  script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+  section.intro
+    .intro-left
+      h2.intro-left-shop-title
+        | Find The Perfect Hat
+        br
+        | For Your Head
+      h4.intro-left-shop-sub-title Beatiful hats to get you (a)head
+      button#intro-left-cta.btn.intro-left-cta SHOP NOW
+    .intro-right
+      iframe(width='560' height='315' src='https://www.youtube.com/embed/Y9FzD7Bfy6g' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+  section.about
+    h3.about-vision.tertiary-title Our Vision
+    .about-vision-p
+      | Why is a raven like a writing-desk? Have you guessed the riddle yet? the Hatter said, turning to Alice again. No, I give it up, Alice replied: What&rsquo;s the answer? I haven&rsquo;t the slightest idea, said the Hatter If I had a world of my own, everything would be nonsense. Nothing would be what it is, because everything would be what it isn&rsquo;t. And contrary wise, what is, it wouldn&rsquo;t be. And what it wouldn&rsquo;t be, it would. You see? &ldquo;I don&rsquo;t think&mldr;&rdquo; then you shouldn&rsquo;t talk, said the Hatter.&rdquo; Have I gone mad? I&rsquo;m afraid so. You&rsquo;re entirely bonkers. But I&rsquo;ll tell you a secret. All the best people are. You mean you can&rsquo;t take less, said the Hatter It&rsquo;s very easy to take more than nothing
+  section.featured-hats
+    h3.featured-hats-title.tertiary-title Our Top Rated Hats
+    #featured-hats-grid.featured-hats-grid
+    each item in products_test
+      .featured-hats-grid-item
+        img.featured-hats-grid-item-img(src='/images/'+item.ProductImage alt='hat image')
+        h5.featured-hats-grid-item-name #{item.ProductName}
+        a.btn.featured-hats-grid-item-btn.Details(href='/Products/index') Details
+  section.location
+    h3.tertiary-title.loaction-title Where Can You Find Us
+    .location-branches
+      aside.branches-list
+        button#btn-nemo.btn.branch-btn Nemo Branch
+        button#btn-antartica.btn.branch-btn Antartica Branch
+        button#btn-mosscow.btn.branch-btn Mosscow Branch
+        button#btn-birTawil.btn.branch-btn Bir Tawil Branch
+      #map.loaction-map
+  section.canvas
+    canvas#canvas-tophat.canvas-tophat
+    video.video(src='/images/video.mp4' type='video/mp4' controls='')
+  script.
+    function drawTextAlongArc(context, str, centerX, centerY, radius, angle) {
+    var len = str.length, s;
+    context.save();
+    context.translate(centerX, centerY);
+    context.rotate(-1 * angle / 2);
+    context.rotate(-1 * (angle / len) / 2);
+    for (var n = 0; n < len; n++) {
+    context.rotate(angle / len);
+    context.save();
+    context.translate(0, -1 * radius);
+    s = str[n];
+    context.fillText(s, 0, 0);
+    context.restore();
+    }
+    context.restore();
+    }
+    var canvas = document.getElementById('canvas-tophat'),
+    context = canvas.getContext('2d'),
+    centerX = canvas.width / 2,
+    centerY = canvas.height - 30,
+    angle = Math.PI * 0.8,
+    radius = 70;
+    context.font = '25pt Calibri';
+    context.textAlign = 'center';
+    context.fillStyle = 'black';
+    context.strokeStyle = 'blue';
+    context.lineWidth = 4;
+    drawTextAlongArc(context, 'AliZappa', centerX, centerY, radius, angle)
+  script(src='/javascript/home-page-map-script.js')

@@ -3,3 +3,6 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  each page in ['admin', 'admin_login', 'admin_products', 'admin_details_products', 'create_product', 'delete_product', 'product_details', 'edit_product', 'product_index', 'prodadmin']
+    a(href='/'+page) #{page}
+    br

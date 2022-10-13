@@ -89,4 +89,10 @@ router.get('/prodadmin', function (req, res) {
   });
 });
 
+router.get('/home', function (req, res) {
+  res.render('home', {
+    title: 'AliZappa', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
 module.exports = router;

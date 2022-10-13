@@ -90,6 +90,9 @@
     <Content Include="views\empty_layout.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\home.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
