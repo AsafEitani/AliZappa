@@ -151,4 +151,10 @@ router.get('/statistics', function (req, res) {
   });
 });
 
+router.get('/byproduct', function (req, res) {
+  res.render('statistics/byproduct', {
+    title: 'AliZappa - Statistics by product', suppliers_test: suppliers_test, cart_id: "1", admin: null
+  });
+});
+
 module.exports = router;
