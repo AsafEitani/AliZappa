@@ -123,7 +123,7 @@ router.get('/suppliers', function (req, res) {
 
 router.get('/create_supplier', function (req, res) {
   res.render('suppliers/create_supplier', {
-    title: 'AliZappa - Create_supplier', suppliers_test: suppliers_test, cart_id: "1", admin: null
+    title: 'AliZappa - Create Supplier', suppliers_test: suppliers_test, cart_id: "1", admin: null
   });
 });
 
@@ -133,22 +133,5 @@ router.get('/delete_supplier', function (req, res) {
   });
 });
 
-router.get('/edit_supplier', function (req, res) {
-  res.render('suppliers/edit_supplier', {
-    title: 'AliZappa - Edit_supplier', suppliers_test: suppliers_test, cart_id: "1", admin: null
-  });
-});
-
-router.get('/suppliers', function (req, res) {
-  res.render('suppliers/suppliers', {
-    title: 'AliZappa - Suppliers', suppliers_test: suppliers_test, cart_id: "1", admin: null
-  });
-});
-
-router.get('/supplier_details', function (req, res) {
-  res.render('suppliers/supplier_details', {
-    title: 'AliZappa - Supplier_details', suppliers_test: suppliers_test, cart_id: "1", admin: null
-  });
-});
 
 module.exports = router;
