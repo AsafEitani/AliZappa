@@ -204,5 +204,15 @@ router.get('/statistics', function (req, res) {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
 >>>>>>> f6e6eb6 (add statistics page)
+=======
+router.get('/byproduct', function (req, res) {
+  res.render('statistics/byproduct', {
+    title: 'AliZappa - Statistics by product', suppliers_test: suppliers_test, cart_id: "1", admin: null
+  });
+});
+
+module.exports = router;
+>>>>>>> 11a635d (add by product statistics page)

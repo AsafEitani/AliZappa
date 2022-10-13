@@ -150,12 +150,29 @@
       <SubType>Code</SubType>
     </Content>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 10b3a73 (add products index page)
 =======
     <Content Include="views\suppliers\suppliers.pug">
       <SubType>Code</SubType>
     </Content>
 >>>>>>> 2dba9bc (add suppliers list page)
+=======
+    <Content Include="views\statistics\byproduct.pug" />
+    <Content Include="views\statistics\Page1.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\statistics\statistics.pug" />
+    <Content Include="views\suppliers\create_supplier.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\suppliers\delete_supplier.pug" />
+    <Content Include="views\suppliers\edit_supplier.pug" />
+    <Content Include="views\suppliers\suppliers.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\suppliers\supplier_details.pug" />
+>>>>>>> 11a635d (add by product statistics page)
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\" />
@@ -176,6 +193,7 @@
     <Folder Include="views\admin\" />
     <Folder Include="views\layouts\" />
     <Folder Include="views\home\" />
+    <Folder Include="views\statistics\" />
     <Folder Include="views\suppliers\" />
     <Folder Include="views\products\" />
   </ItemGroup>
