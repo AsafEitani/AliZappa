@@ -33,20 +33,40 @@ const products_test = [
 >>>>>>> 06dee12 (fix styles)
 /* GET home page. */
 router.get('/', function (req, res) {
+<<<<<<< HEAD
     res.render('index', { title: 'Express' });
+=======
+  res.render('home/home', {
+    title: 'AliZappa', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
+router.get('/admin', function (req, res) {
+    res.render('admin/admin', { title: 'Admin' });
+});
+
+router.get('/admin_login', function (req, res) {
+  res.render('admin/admin_login', { title: 'Admin Login' });
+});
+
+router.get('/admin_products', function (req, res) {
+  res.render('admin/admin_products', {
+    title: 'Admin Products', products_test: products_test
+  });
+>>>>>>> 3368bb8 (restructer views dir)
 });
 
 <<<<<<< HEAD
 module.exports = router;
 =======
 router.get('/admin_details_products', function (req, res) {
-  res.render('admin_details_products', {
+  res.render('admin/admin_details_products', {
     title: 'Admin Products Details', products_test: products_test
   });
 });
 
 router.get('/create_product', function (req, res) {
-  res.render('create_product', {
+  res.render('products/create_product', {
     title: 'Create Product', products_test: products_test
   });
 });
@@ -56,7 +76,7 @@ module.exports = router;
 >>>>>>> 06dee12 (fix styles)
 =======
 router.get('/delete_product', function (req, res) {
-  res.render('delete_product', {
+  res.render('products/delete_product', {
     title: 'Delete Product', products_test: products_test
   });
 });
@@ -66,7 +86,7 @@ module.exports = router;
 >>>>>>> 3fe524b (add delete_product page)
 =======
 router.get('/product_details', function (req, res) {
-  res.render('product_details', {
+  res.render('products/product_details', {
     title: 'Product Details', products_test: products_test, cart_id: "1", admin: null
   });
 });
@@ -76,7 +96,7 @@ module.exports = router;
 >>>>>>> aff32f1 (add product details page)
 =======
 router.get('/edit_product', function (req, res) {
-  res.render('edit_product', {
+  res.render('products/edit_product', {
     title: 'Edit Product', products_test: products_test, cart_id: "1", admin: null
   });
 });
@@ -86,7 +106,7 @@ module.exports = router;
 >>>>>>> 1cce62b (add edit product page)
 =======
 router.get('/product_index', function (req, res) {
-  res.render('product_index', {
+  res.render('products/product_index', {
     title: 'Index', products_test: products_test, cart_id: "1", admin: null
   });
 });
@@ -96,7 +116,7 @@ module.exports = router;
 >>>>>>> 10b3a73 (add products index page)
 =======
 router.get('/prodadmin', function (req, res) {
-  res.render('prodadmin', {
+  res.render('products/prodadmin', {
     title: 'Product Admin', products_test: products_test, cart_id: "1", admin: null
   });
 });
@@ -106,7 +126,7 @@ module.exports = router;
 >>>>>>> 5f60c87 (add product admin page)
 =======
 router.get('/home', function (req, res) {
-  res.render('home', {
+  res.render('home/home', {
     title: 'AliZappa', products_test: products_test, cart_id: "1", admin: null
   });
 });
@@ -116,7 +136,7 @@ module.exports = router;
 >>>>>>> b2cc590 (add home page)
 =======
 router.get('/login', function (req, res) {
-  res.render('login', {
+  res.render('home/login', {
     title: 'AliZappa - Login', products_test: products_test, cart_id: "1", admin: null
   });
 });

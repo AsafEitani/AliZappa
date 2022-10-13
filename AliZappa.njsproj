@@ -73,28 +73,33 @@
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <Content Include="views\admin_details_products.pug">
+=======
+    <Content Include="views\admin\admin_details_products.pug">
+>>>>>>> 3368bb8 (restructer views dir)
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\admin_login.pug">
+    <Content Include="views\admin\admin_login.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\admin_products.pug">
+    <Content Include="views\admin\admin_products.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\create_product.pug">
+    <Content Include="views\products\create_product.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\delete_product.pug">
+    <Content Include="views\products\delete_product.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\edit_product.pug">
+    <Content Include="views\products\edit_product.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\empty_layout.pug">
+    <Content Include="views\layouts\empty_layout.pug">
       <SubType>Code</SubType>
     </Content>
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 35ba324 (add create_product page)
 =======
@@ -108,27 +113,40 @@
 <<<<<<< HEAD
 =======
     <Content Include="views\admin.pug">
+=======
+    <Content Include="views\home\home.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\layout_noheader.pug">
+    <Content Include="views\home\index.pug" />
+    <Content Include="views\layouts\layout.pug" />
+    <Content Include="views\home\error.pug" />
+    <Content Include="views\admin\admin.pug">
+>>>>>>> 3368bb8 (restructer views dir)
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\login.pug">
+    <Content Include="views\layouts\layout_noheader.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\mylayout.pug">
+    <Content Include="views\home\login.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\prodadmin.pug">
+    <Content Include="views\layouts\mylayout.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\product_details.pug">
+    <Content Include="views\products\prodadmin.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\products\product_details.pug">
+      <SubType>Code</SubType>
+    </Content>
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> aff32f1 (add product details page)
 =======
     <Content Include="views\product_index.pug">
+=======
+    <Content Include="views\products\product_index.pug">
+>>>>>>> 3368bb8 (restructer views dir)
       <SubType>Code</SubType>
     </Content>
 >>>>>>> 10b3a73 (add products index page)
@@ -149,6 +167,10 @@
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
+    <Folder Include="views\admin\" />
+    <Folder Include="views\layouts\" />
+    <Folder Include="views\home\" />
+    <Folder Include="views\products\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>
