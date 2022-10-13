@@ -30,73 +30,75 @@ const products_test = [
 
 /* GET home page. */
 router.get('/', function (req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('home/home', {
+    title: 'AliZappa', products_test: products_test, cart_id: "1", admin: null
+  });
 });
 
 router.get('/admin', function (req, res) {
-    res.render('admin', { title: 'Admin' });
+    res.render('admin/admin', { title: 'Admin' });
 });
 
 router.get('/admin_login', function (req, res) {
-    res.render('admin_login', { title: 'Admin Login' });
+  res.render('admin/admin_login', { title: 'Admin Login' });
 });
 
 router.get('/admin_products', function (req, res) {
-  res.render('admin_products', {
+  res.render('admin/admin_products', {
     title: 'Admin Products', products_test: products_test
   });
 });
 
 router.get('/admin_details_products', function (req, res) {
-  res.render('admin_details_products', {
+  res.render('admin/admin_details_products', {
     title: 'Admin Products Details', products_test: products_test
   });
 });
 
 router.get('/create_product', function (req, res) {
-  res.render('create_product', {
+  res.render('products/create_product', {
     title: 'Create Product', products_test: products_test
   });
 });
 
 router.get('/delete_product', function (req, res) {
-  res.render('delete_product', {
+  res.render('products/delete_product', {
     title: 'Delete Product', products_test: products_test
   });
 });
 
 router.get('/product_details', function (req, res) {
-  res.render('product_details', {
+  res.render('products/product_details', {
     title: 'Product Details', products_test: products_test, cart_id: "1", admin: null
   });
 });
 
 router.get('/edit_product', function (req, res) {
-  res.render('edit_product', {
+  res.render('products/edit_product', {
     title: 'Edit Product', products_test: products_test, cart_id: "1", admin: null
   });
 });
 
 router.get('/product_index', function (req, res) {
-  res.render('product_index', {
+  res.render('products/product_index', {
     title: 'Index', products_test: products_test, cart_id: "1", admin: null
   });
 });
 
 router.get('/prodadmin', function (req, res) {
-  res.render('prodadmin', {
+  res.render('products/prodadmin', {
     title: 'Product Admin', products_test: products_test, cart_id: "1", admin: null
   });
 });
 
 router.get('/home', function (req, res) {
-  res.render('home', {
+  res.render('home/home', {
     title: 'AliZappa', products_test: products_test, cart_id: "1", admin: null
   });
 });
 
 router.get('/login', function (req, res) {
-  res.render('login', {
+  res.render('home/login', {
     title: 'AliZappa - Login', products_test: products_test, cart_id: "1", admin: null
   });
 });
