@@ -1,0 +1,30 @@
+extends ../layouts/layout_noheader
+block layout-content
+  h1 Edit
+  h4 Supplier
+  hr
+  .row
+    .col-md-4
+      label(for='fname') SupplierName
+      input#SupplierName(type='text' name='fname' value=suppliers_test[0].SupplierName)
+      br
+      br
+      label(for='lname') SupplierPhoneNumber
+      input#SupplierPhoneNumber(type='text' name='lname' value=suppliers_test[0].SupplierPhoneNumber)
+      br
+      br
+      label(for='lname') SupplierID
+      input#SupplierID(type='text' name='lname' value=suppliers_test[0].SupplierID)
+      br
+      br
+      input#btn.btn.btn-primary(type='button' value='Save')
+  script.
+    $('#btn').click(function () {
+    var elmId = $(this).attr("id");
+    send();
+    });
+    function send() {
+    $.post("/edit_supplier", { SupplierID: $('#SupplierID').val(), SupplierName: $('#SupplierName').val(), SupplierPhonNumber: $('#SupplierPhoneNumber').val()}, function (data) {
+    $("#maindiv").html(data);
+    });
+    }
