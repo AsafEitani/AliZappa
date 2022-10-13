@@ -1,0 +1,33 @@
+extends ../layouts/layout_noheader
+block layout-content
+  h1 Details
+  div
+    h4 Supplier
+    hr
+    dl.row
+      dt.col-sm-2
+        | SupplierName
+      dd.col-sm-10
+        | #{suppliers_test[0].SupplierName}
+      dt.col-sm-2
+        | SupplierPhoneNumber
+      dd.col-sm-10
+        | #{suppliers_test[0].SupplierPhoneNumber}
+      dt.col-sm-2
+        | ProductsIdsList
+      dd.col-sm-10
+        each item in products_test
+          div #{item.ProductID}
+      dt.col-sm-2
+        | ProductsNames
+      dd.col-sm-10
+        each item in products_test
+          div #{item.ProductName}
+      dt.col-sm-2
+        | ProductsPrices
+      dd.col-sm-10
+        each item in products_test
+          div #{item.ProductPrice}
+      dt.col-sm-2
+        | SupplierID
+      dd.col-sm-10 #{suppliers_test[0].SupplierID}

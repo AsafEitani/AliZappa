@@ -188,6 +188,11 @@ router.get('/edit_supplier', function (req, res) {
   });
 });
 
+router.get('/supplier_details', function (req, res) {
+  res.render('suppliers/supplier_details', {
+    title: 'AliZappa - Supplier Details', suppliers_test: suppliers_test, products_test: products_test, cart_id: "1", admin: null
+  });
+});
 
 module.exports = router;
 >>>>>>> d2274c4 (add create supplier page)
