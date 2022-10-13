@@ -28,6 +28,18 @@ const products_test = [
     ProductQuantityL: 7
   }]
 
+const suppliers_test = [
+  {
+    SupplierName: "Halilit",
+    SupplierID: "1",
+    SupplierPhoneNumber: "+97255566684",
+  },
+  {
+    SupplierName: "CleiZemer",
+    SupplierID: "2",
+    SupplierPhoneNumber: "+97256488801",
+  },]
+
 /* GET home page. */
 router.get('/', function (req, res) {
   res.render('home/home', {
@@ -100,6 +112,12 @@ router.get('/home', function (req, res) {
 router.get('/login', function (req, res) {
   res.render('home/login', {
     title: 'AliZappa - Login', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
+router.get('/suppliers', function (req, res) {
+  res.render('suppliers/suppliers', {
+    title: 'AliZappa - Suppliers', suppliers_test: suppliers_test, cart_id: "1", admin: null
   });
 });
 

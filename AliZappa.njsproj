@@ -117,6 +117,9 @@
     <Content Include="views\products\product_index.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\suppliers\suppliers.pug">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\" />
@@ -132,6 +135,7 @@
     <Folder Include="views\admin\" />
     <Folder Include="views\layouts\" />
     <Folder Include="views\home\" />
+    <Folder Include="views\suppliers\" />
     <Folder Include="views\products\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
