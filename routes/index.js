@@ -194,5 +194,15 @@ router.get('/supplier_details', function (req, res) {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
 >>>>>>> d2274c4 (add create supplier page)
+=======
+router.get('/statistics', function (req, res) {
+  res.render('statistics/statistics', {
+    title: 'AliZappa - Statistics', suppliers_test: suppliers_test, cart_id: "1", admin: null
+  });
+});
+
+module.exports = router;
+>>>>>>> f6e6eb6 (add statistics page)
