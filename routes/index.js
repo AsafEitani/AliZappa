@@ -30,7 +30,22 @@ const products_test = [
     ProductQuantityL: 7
   }]
 
+<<<<<<< HEAD
 >>>>>>> 06dee12 (fix styles)
+=======
+const suppliers_test = [
+  {
+    SupplierName: "Halilit",
+    SupplierID: "1",
+    SupplierPhoneNumber: "+97255566684",
+  },
+  {
+    SupplierName: "CleiZemer",
+    SupplierID: "2",
+    SupplierPhoneNumber: "+97256488801",
+  },]
+
+>>>>>>> 2dba9bc (add suppliers list page)
 /* GET home page. */
 router.get('/', function (req, res) {
 <<<<<<< HEAD
@@ -141,5 +156,15 @@ router.get('/login', function (req, res) {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
 >>>>>>> 1ece6dc (add login page)
+=======
+router.get('/suppliers', function (req, res) {
+  res.render('suppliers/suppliers', {
+    title: 'AliZappa - Suppliers', suppliers_test: suppliers_test, cart_id: "1", admin: null
+  });
+});
+
+module.exports = router;
+>>>>>>> 2dba9bc (add suppliers list page)
