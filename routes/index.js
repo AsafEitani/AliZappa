@@ -111,5 +111,15 @@ router.get('/home', function (req, res) {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
 >>>>>>> b2cc590 (add home page)
+=======
+router.get('/login', function (req, res) {
+  res.render('login', {
+    title: 'AliZappa - Login', products_test: products_test, cart_id: "1", admin: null
+  });
+});
+
+module.exports = router;
+>>>>>>> 1ece6dc (add login page)
