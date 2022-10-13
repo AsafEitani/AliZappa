@@ -182,6 +182,12 @@ router.get('/delete_supplier', function (req, res) {
   });
 });
 
+router.get('/edit_supplier', function (req, res) {
+  res.render('suppliers/edit_supplier', {
+    title: 'AliZappa - Edit Supplier', suppliers_test: suppliers_test, cart_id: "1", admin: null
+  });
+});
+
 
 module.exports = router;
 >>>>>>> d2274c4 (add create supplier page)
