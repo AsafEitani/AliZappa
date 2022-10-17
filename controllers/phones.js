@@ -1,8 +1,8 @@
-const Guitar = require('../models/guitars');
+const Phone = require('../models/phones');
 
 const list = (req, res) => {
-    Guitar.find().then(results => {
-        res.render("../views/guitars", { guitars: results });
+    Phone.find().then(results => {
+        res.render("../views/phones", { phones: results });
     });
 }
 
@@ -10,24 +10,25 @@ const getById = (req, res) => {
     if (!req.cookies.isAdmin) {
         res.send('Please login as admin!')
     } else {
-        Guitar.findById(req.query.id).then(results => {
-            res.render("../views/editGuitar", { guitar: results });
+        Phone.findById(req.query.id).then(results => {
+            res.render("../views/editPhone", { phone: results });
         });
     }
 }
 
 const create = (req, res) => {
  
-    const newGuitar = new Guitar({
+    const newPhone = new Phone({
         name: req.body.name,
-        type: req.body.type,
         manufacturer: req.body.manufacturer,
-        stringCount: req.body.stringCount,
+        gb: req.body.gb,
+        color: req.body.color,
+        dpi: req.body.dpi,
         price: req.body.price
     })
  
-    newGuitar.save().then(() => {
-        res.redirect('/guitars');
+    newPhone.save().then(() => {
+        res.redirect('/Phones');
     }).catch(error => {
         res.send('Already exists!' + error)
     });
@@ -40,12 +41,9 @@ const search = (req, res) => {
         minPrice = req.query.minPrice
     }
 
-    Guitar.find({
+    Phone.find({
         "name": {
-            $regex: `.*${req.query.guitar_name}.*`
-        },
-        "type": {
-            $regex: `.*${req.query.type}.*`
+            $regex: `.*${req.query.phone_name}.*`
         },
         "manufacturer": {
             $regex: `.*${req.query.manufacturer}.*`
@@ -53,15 +51,15 @@ const search = (req, res) => {
         "price": { $gt: minPrice },
         })
         .then(results => {
-            res.render("../views/guitars", { guitars: results });
+            res.render("../views/phones", { phones: results });
         });
 }
 
-const deleteGuitar = (req, res) => {
+const deletePhone = (req, res) => {
     if (!req.cookies.isAdmin) {
         res.send('Please login as admin!')
     } else {
-        Guitar.findByIdAndDelete(req.body.id).then(() => res.redirect('/guitars'));
+        Phone.findByIdAndDelete(req.body.id).then(() => res.redirect('/phones'));
     }
 }
  
@@ -69,14 +67,16 @@ const update = (req, res) => {
     if (!req.cookies.isAdmin) {
         res.send('Please login as admin!')
     } else {
-        Guitar.findById(req.body.id)
-            .then(guitar => {
-                if (guitar) {
-                    guitar.name = req.body.name;
-                    guitar.manufacturer = req.body.manufacturer;
-                    guitar.stringCount = req.body.stringCount;
-                    guitar.price = req.body.price;
-                    guitar.save().then(() => res.redirect('/guitars'));
+        Phone.findById(req.body.id)
+            .then(phone => {
+                if (phone) {
+                    phone.name = req.body.name;
+                    phone.manufacturer = req.body.manufacturer;
+                    phone.gb = req.body.gb;
+                    phone.color = req.body.gb;
+                    phone.dpi = req.body.dpi;
+                    phone.price = req.body.price;
+                    phone.save().then(() => res.redirect('/phones'));
                 } else
                     res.send('No results');
             })
@@ -91,6 +91,6 @@ module.exports = {
     create,
     search,
     getById,
-    deleteGuitar,
+    deletePhone,
     update
 }

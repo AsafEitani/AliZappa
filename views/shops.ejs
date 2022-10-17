@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
 </head>
 <body>
-    <div id="nevbar">
+    <nav id="nevbar">
         <div id="nev_left">
             <div id="logo">
                 <div id="logo_name">ALIZAPPA</div>
@@ -25,10 +25,10 @@
             <a href="tvs"><div class="nev_item">Tvs</div></a>
         </div>
         <div id="register_shop_btn" onclick="$('#exampleModal').modal('show')">Register Shop</div>
-    </div>
-    <div id="content">
+    </nav>
+    <footer id="content">
         <div id="shop_list">
-            <div id="shop_list_headline">Shops</div>
+            <header id="shop_list_headline">Shops</header>
             <div id="shop_list_search_closed">
                 <div id="search_top">
                     <div id="search_headline">Search Options:</div>
@@ -61,14 +61,15 @@
                     <button>Search</button>
                 </form>
             </div>
-            <div id="shop_list_content">
+            <section id="shop_list_content">
             <%for (var i = 0; i < shops.length; i++) {%>
+                <!-- <%=shops[i]._id%> -->
                 <% if(shops[i].type == "Guitars Shop"){ %>
-                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/guitar-shop-logo.jpg')">
+                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/guitar-shop-logo.jpg','<%=shops[i].lat%>','<%=shops[i].lon%>')">
                 <% } else if(shops[i].type == "Phones Shop") { %>
-                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/phone-shop-logo.png')">
+                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/phone-shop-logo.png','<%=shops[i].lat%>','<%=shops[i].lon%>')">
                 <% } else if(shops[i].type == "TVs Shop") { %>
-                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/tv-shop-logo.png')">
+                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/tv-shop-logo.png','<%=shops[i].lat%>','<%=shops[i].lon%>')">
                 <% } %>
                     <div class="shop_data">
                         <div>
@@ -100,9 +101,9 @@
                     <% } %>
                 </div>
             <%}%>
-            </div>
+            </section>
         </div>
-        <div id="mainshop_box">
+        <aside id="mainshop_box">
             <div id="mainshop_headline">Selected Shop Name</div>
             <div id="mainshop_content_box">
                 <div id="mainshop_content_top">
@@ -148,8 +149,8 @@
                 </div>
                 <div id="map"></div>
             </div>
-        </div>
-    </div>
+        </aside>
+    </footer>
 
 
 
@@ -209,6 +210,18 @@
                                 <i class="fa-light fa-location-dot"></i>
                             </div>
                             <input name="address" type="text" placeholder="Shop address">
+                        </div>
+                        <div class="register_item">
+                            <div>
+                                <i class="fa-light fa-location-dot"></i>
+                            </div>
+                            <input name="lat" type="number" placeholder="Shop lat">
+                        </div>
+                        <div class="register_item">
+                            <div>
+                                <i class="fa-light fa-location-dot"></i>
+                            </div>
+                            <input name="lon" type="number" placeholder="Shop lon">
                         </div>
                         <button id="register_button" type="submit" class="btn btn-primary">Register</button>
                     </form>

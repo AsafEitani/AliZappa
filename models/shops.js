@@ -8,7 +8,9 @@ const shop = new Schema({
   phoneNumber: String,
   email: String,
   website: String,
-  address: String
+  address: String,
+  lat: Number,
+  lon: Number
 },{ collection : 'shops' })
  
 module.exports = mongoose.model('shop', shop)

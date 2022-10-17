@@ -282,6 +282,17 @@ form {
     overflow: hidden;
     transition: height 1s;
 }
+#guitar_list_search_open {
+    width: 94%;
+    height: 300px;
+    margin-left: 15px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 20%) 0px 4px 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: height 1s;
+}
 #search_top {
     display: flex;
     justify-content: space-between;

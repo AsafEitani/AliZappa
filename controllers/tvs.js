@@ -1,8 +1,8 @@
-const Guitar = require('../models/guitars');
+const Tv = require('../models/tvs');
 
 const list = (req, res) => {
-    Guitar.find().then(results => {
-        res.render("../views/guitars", { guitars: results });
+    Tv.find().then(results => {
+        res.render("../views/tvs", { tvs: results });
     });
 }
 
@@ -10,24 +10,23 @@ const getById = (req, res) => {
     if (!req.cookies.isAdmin) {
         res.send('Please login as admin!')
     } else {
-        Guitar.findById(req.query.id).then(results => {
-            res.render("../views/editGuitar", { guitar: results });
+        Tv.findById(req.query.id).then(results => {
+            res.render("../views/editTv", { tv: results });
         });
     }
 }
 
 const create = (req, res) => {
  
-    const newGuitar = new Guitar({
+    const newTv = new Tv({
         name: req.body.name,
-        type: req.body.type,
         manufacturer: req.body.manufacturer,
-        stringCount: req.body.stringCount,
+        inch: req.body.inch,
         price: req.body.price
     })
  
-    newGuitar.save().then(() => {
-        res.redirect('/guitars');
+    newTv.save().then(() => {
+        res.redirect('/tvs');
     }).catch(error => {
         res.send('Already exists!' + error)
     });
@@ -40,9 +39,9 @@ const search = (req, res) => {
         minPrice = req.query.minPrice
     }
 
-    Guitar.find({
+    Tv.find({
         "name": {
-            $regex: `.*${req.query.guitar_name}.*`
+            $regex: `.*${req.query.tv_name}.*`
         },
         "type": {
             $regex: `.*${req.query.type}.*`
@@ -53,15 +52,15 @@ const search = (req, res) => {
         "price": { $gt: minPrice },
         })
         .then(results => {
-            res.render("../views/guitars", { guitars: results });
+            res.render("../views/tvs", { tvs: results });
         });
 }
 
-const deleteGuitar = (req, res) => {
+const deleteTv = (req, res) => {
     if (!req.cookies.isAdmin) {
         res.send('Please login as admin!')
     } else {
-        Guitar.findByIdAndDelete(req.body.id).then(() => res.redirect('/guitars'));
+        Tv.findByIdAndDelete(req.body.id).then(() => res.redirect('/tvs'));
     }
 }
  
@@ -69,14 +68,14 @@ const update = (req, res) => {
     if (!req.cookies.isAdmin) {
         res.send('Please login as admin!')
     } else {
-        Guitar.findById(req.body.id)
-            .then(guitar => {
-                if (guitar) {
-                    guitar.name = req.body.name;
-                    guitar.manufacturer = req.body.manufacturer;
-                    guitar.stringCount = req.body.stringCount;
-                    guitar.price = req.body.price;
-                    guitar.save().then(() => res.redirect('/guitars'));
+        Tv.findById(req.body.id)
+            .then(tv => {
+                if (tv) {
+                    tv.name = req.body.name;
+                    tv.manufacturer = req.body.manufacturer;
+                    tv.inch = req.body.inch;
+                    tv.price = req.body.price;
+                    tv.save().then(() => res.redirect('/tvs'));
                 } else
                     res.send('No results');
             })
@@ -91,6 +90,6 @@ module.exports = {
     create,
     search,
     getById,
-    deleteGuitar,
+    deleteTv,
     update
 }

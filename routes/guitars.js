@@ -6,11 +6,17 @@ var connectionString = "mongodb://mongo:secret@localhost:27017/";
  
 mongoose.connect(connectionString)
  
-router.get('/guitars', GuitarsController.get);
+router.get('/guitars', GuitarsController.list);
 
 router.post('/registerGuitar', GuitarsController.create)
 
-// router.get('/searchShop', ShopsController.search)
+router.get('/searchGuitar', GuitarsController.search)
+
+router.get('/editGuitar', GuitarsController.getById)
+
+router.post('/deleteGuitar', GuitarsController.deleteGuitar)
+
+router.post('/updateGuitar', GuitarsController.update)
  
  
 module.exports = router;

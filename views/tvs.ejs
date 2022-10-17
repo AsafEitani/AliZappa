@@ -24,72 +24,55 @@
             <a href="phones"><div class="nev_item">Phones</div></a>
             <a href="tvs"><div class="nev_item">Tvs</div></a>
         </div>
-        <div id="register_shop_btn" onclick="$('#exampleModal').modal('show')">Register Guitar</div>
+        <div id="register_shop_btn" onclick="$('#exampleModal').modal('show')">Register Tv</div>
     </nav>
     <footer id="content">
         <div id="shop_list">
-            <header id="shop_list_headline">Guitars</header>
+            <header id="shop_list_headline">Tvs</header>
             <div id="shop_list_search_closed">
                 <div id="search_top">
                     <div id="search_headline">Search Options:</div>
-                    <i id="toggle_search_box_icon" class="fa-light fa-down" onclick="open_guitar_list_search()"></i>
+                    <i id="toggle_search_box_icon" class="fa-light fa-down" onclick="open_shop_list_search()"></i>
                 </div>
-                <form id="search_form" method="get" action="/searchGuitar">
+                <form id="search_form" method="get" action="/searchTv">
                     <div class="search_item">
                         <div>
-                            <i class="fa-light fa-guitar"></i>
+                            <i class="fa-light fa-tv"></i>
                         </div>
-                        <input name="guitar_name" type="text" placeholder="Guitar name">
+                        <input name="tv_name" type="text" placeholder="Tv name">
                     </div>
                     <div class="search_item">
                         <div>
                             <i class="fa-light fa-circle-info"></i>
                         </div>
-                        <input name="manufacturer" type="text" placeholder="Guitar manufacturer">
-                    </div>
-                    <div class="search_item">
-                        <div>
-                            <i class="fa-light fa-box"></i>
-                        </div>
-                        <select name="type">
-                            <option value="" selected hidden>Guitar type</option>
-                            <option value="acoustic">acoustic</option>
-                            <option value="electric">Phones Shop</option>
-                            <option value="bass">bass</option>
-                        </select>
+                        <input name="manufacturer" type="text" placeholder="Phone manufacturer">
                     </div>
                     <div class="search_item">
                         <div>
                             <i class="fa-light fa-location-dot"></i>
                         </div>
-                        <input name="minPrice" type="number" min=0 placeholder="Guitar minimum price">
+                        <input name="minPrice" type="number" min=0 placeholder="Phone minimum price">
                     </div>
                     <button>Search</button>
                 </form>
             </div>
             <section id="shop_list_content">
-            <%for (var i = 0; i < guitars.length; i++) {%>
-                <!-- <%=guitars[i]._id%> -->
-                    <div class="shop_box" onclick="selectGuitar('<%=guitars[i].name%>','<%=guitars[i].type%>','<%=guitars[i].manufacturer%>','<%=guitars[i].stringCount%>','<%=guitars[i].price%>')">
+            <%for (var i = 0; i < tvs.length; i++) {%>
+                <!-- <%=tvs[i]._id%> -->
+                    <div class="shop_box" onclick="selectTv('<%=tvs[i].name%>','<%=tvs[i].manufacturer%>','<%=tvs[i].inch%>','<%=tvs[i].price%>')">
                     <div class="shop_data">
                         <div>
                             <div class="shop_name">
-                                <%=guitars[i].name%>
+                                <%=tvs[i].name%>
                             </div>
                             <div class="shop_type">
-                                <% if(guitars[i].type == "bass"){ %>
-                                    <i class="fa-light fa-mandolin" id="shop_type_icon"></i>
-                                <% } else if(guitars[i].type == "electric") { %>
-                                    <i class="fa-light fa-guitar-electric" id="shop_type_icon"></i>
-                                <% } else if(guitars[i].type == "acoustic") { %>
-                                    <i class="fa-light fa-guitar" id="shop_type_icon"></i>
-                                <% } %>
-                                <%=guitars[i].type%>
+                                <i class="fa-light fa-screwdriver-wrench" id="shop_type_icon"></i>
+                                <%=tvs[i].manufacturer%>
                             </div>
                         </div>
                         
                         <div class="shop_info">
-                            <%=guitars[i].price%>
+                            <%=tvs[i].price%>
                             <i class="fa-light fa-dollar-sign" class="shop_type_icon_tag"></i>
                         </div>
                     </div>
@@ -98,39 +81,33 @@
             </section>
         </div>
         <aside id="mainshop_box">
-            <div id="mainshop_headline">Selected Guitar Name</div>
+            <div id="mainshop_headline">Selected Tv Name</div>
             <div id="mainshop_content_box">
                 <div id="mainshop_content_top">
                     <div id="mainshop_content_data">
                         <div class="mainshop_content_item">
                             <div>
-                                <i class="fa-light fa-guitar"></i>
+                                <i class="fa-light fa-tv"></i>
                             </div>
-                            <div class="mainshop_content_text" id="mainguitar_content_item_name">Selected Guitar Name</div>
-                        </div>
-                        <div class="mainshop_content_item">
-                            <div>
-                                <i class="fa-light fa-box"></i>
-                            </div>
-                            <div class="mainshop_content_text" id="mainguitar_content_item_type">Selected Guitar Type</div>
+                            <div class="mainshop_content_text" id="mainguitar_content_item_name">Selected Tv Name</div>
                         </div>
                         <div class="mainshop_content_item">
                             <div>
                                 <i class="fa-light fa-circle-info"></i>
                             </div>
-                            <div class="mainshop_content_text" id="mainguitar_content_item_manufacturer">Selected Guitar Manufacturer</div>
+                            <div class="mainshop_content_text" id="mainguitar_content_item_manufacturer">Selected Tv Manufacturer</div>
                         </div>
                         <div class="mainshop_content_item">
                             <div>
-                                <i class="fa-light fa-tilde"></i>
+                                <i class="fa-light fa-expand"></i>
                             </div>
-                            <div class="mainshop_content_text" id="mainguitar_content_item_stringCount">Selected Guitar string Count</div>
+                            <div class="mainshop_content_text" id="mainguitar_content_item_inch">Selected Tv inch</div>
                         </div>
                         <div class="mainshop_content_item">
                             <div>
                                 <i class="fa-light fa-dollar-sign"></i>
                             </div>
-                            <div class="mainshop_content_text" id="mainguitar_content_item_price">Selected Guitar Price</div>
+                            <div class="mainshop_content_text" id="mainguitar_content_item_price">Selected Tv Price</div>
                         </div>
                     </div>
                 </div>
@@ -148,25 +125,15 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5>Register Guitar,</h5>
+                    <h5>Register Tv,</h5>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="/registerGuitar">
+                    <form method="post" action="/registerTv">
                         <div class="register_item">
                             <div>
-                                <i class="fa-light fa-guitar"></i>
+                                <i class="fa-light fa-tv"></i>
                             </div>
-                            <input name="name" type="text" placeholder="Guitar name">
-                        </div>
-                        <div class="register_item">
-                            <div>
-                                <i class="fa-light fa-box"></i>
-                            </div>
-                            <select name="type">
-                                <option value="acoustic">acoustic</option>
-                                <option value="electric">electric</option>
-                                <option value="bass">bass</option>
-                            </select>
+                            <input name="name" type="text" placeholder="Tv name">
                         </div>
                         <div class="register_item">
                             <div>
@@ -176,9 +143,9 @@
                         </div>
                         <div class="register_item">
                             <div>
-                                <i class="fa-light fa-tilde"></i>
+                                <i class="fa-light fa-expand"></i>
                             </div>
-                            <input name="stringCount" type="number" min=0 max=12 placeholder="String count">
+                            <input name="inch" type="number" min=0 placeholder="Tv inch">
                         </div>
                         <div class="register_item">
                             <div>
