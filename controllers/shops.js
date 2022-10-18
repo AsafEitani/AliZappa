@@ -1,8 +1,13 @@
 const Shop = require('../models/shops');
+const axios = require('axios');
 
 const list = (req, res) => {
     Shop.find().then(results => {
-        res.render("../views/shops", { shops: results });
+        if (!req.cookies.isAdmin) {
+            res.render("../views/shops", { shops: results, isAdmin: false });
+        } else {
+            res.render("../views/shops", { shops: results, isAdmin: true });
+        }
     });
 }
 
@@ -17,24 +22,41 @@ const getById = (req, res) => {
 }
 
 const create = (req, res) => {
- 
-    const newShop = new Shop({
-        name: req.body.name,
-        type: req.body.type,
-        content: req.body.content,
-        phoneNumber: req.body.phoneNumber,
-        email: req.body.email,
-        website: req.body.website,
-        address: req.body.address,
-        lat: req.body.lat,
-        lon: req.body.lon
-    })
- 
-    newShop.save().then(() => {
-        res.redirect('/shops');
-    }).catch(error => {
-        res.send('Already exists!' + error)
-    });
+    if (req.body.name == '') {
+        const newShop = new Shop({
+            name: req.body.name,
+            type: req.body.type,
+            content: req.body.content,
+            phoneNumber: req.body.phoneNumber,
+            email: req.body.email,
+            website: req.body.website,
+            address: req.body.address,
+            lat: req.body.lat,
+            lon: req.body.lon
+        })
+     
+        newShop.save().then(() => {
+            res.redirect('/shops');
+        }).catch(error => {
+            res.send('Already exists!' + error)
+        });
+    
+        axios.post(
+            'https://api.twitter.com/2/tweets',
+            // '{"text": "Hello World3!"}',
+            {
+                'text': 'new shop created with the name ' + req.body.name
+            },
+            {
+                headers: {
+                    'Content-type': 'application/json',
+                    'Authorization': 'Bearer N0hfSTQ5TnphVG94amE0aFIzMURmYzJsbDBCZVVma3NqNVpjLXZUYjY3NzNVOjE2NjYxMjI4NzMxMzc6MToxOmF0OjE'
+                }
+            }
+        );
+    } else {
+        res.send('Empty name please dont do it!')
+    }
 }
 
 const search = (req, res) => {

@@ -16,7 +16,7 @@ function initMap() {
   
 window.initMap = initMap;
 
-function selectShop(name,type,content,phoneNumber,email,website,imgsrc,lat,lon){
+function selectShop(name,type,content,phoneNumber,email,website,imgsrc,lat,lon,id){
     document.getElementById("mainshop_headline").innerHTML = name;
 
     document.getElementById("mainshop_content_item_name").innerHTML = name;
@@ -27,6 +27,8 @@ function selectShop(name,type,content,phoneNumber,email,website,imgsrc,lat,lon){
     document.getElementById("mainshop_content_item_website").innerHTML = website;
     document.getElementById("mainshop_content_img").src = imgsrc;
     changeMap(Number(lat),Number(lon))
+
+    document.getElementById('adminEdit').href = "editShop?id="+id
 }
 
 function changeMap(lat, lng){
@@ -69,7 +71,7 @@ function close_guitar_list_search() {
     document.getElementById("toggle_search_box_icon").className = "fa-light fa-down"
 }
 
-function selectGuitar(name,type,manufacturer,stringCount,price){
+function selectGuitar(name,type,manufacturer,stringCount,price,id){
     document.getElementById("mainshop_headline").innerHTML = name;
 
     document.getElementById("mainguitar_content_item_name").innerHTML = name;
@@ -77,9 +79,11 @@ function selectGuitar(name,type,manufacturer,stringCount,price){
     document.getElementById("mainguitar_content_item_manufacturer").innerHTML = manufacturer;
     document.getElementById("mainguitar_content_item_stringCount").innerHTML = stringCount;
     document.getElementById("mainguitar_content_item_price").innerHTML = price;
+
+    document.getElementById('adminEdit').href = "editGuitar?id="+id
 }
 
-function selectPhone(name,manufacturer,gb,color,dpi,price){
+function selectPhone(name,manufacturer,gb,color,dpi,price,id){
     document.getElementById("mainshop_headline").innerHTML = name;
 
     document.getElementById("mainguitar_content_item_name").innerHTML = name;
@@ -88,13 +92,17 @@ function selectPhone(name,manufacturer,gb,color,dpi,price){
     document.getElementById("mainguitar_content_item_color").innerHTML = color;
     document.getElementById("mainguitar_content_item_dpi").innerHTML = dpi;
     document.getElementById("mainguitar_content_item_price").innerHTML = price;
+
+    document.getElementById('adminEdit').href = "editPhone?id="+id
 }
 
-function selectTv(name,manufacturer,inch,price){
+function selectTv(name,manufacturer,inch,price,id){
     document.getElementById("mainshop_headline").innerHTML = name;
 
     document.getElementById("mainguitar_content_item_name").innerHTML = name;
     document.getElementById("mainguitar_content_item_manufacturer").innerHTML = manufacturer;
     document.getElementById("mainguitar_content_item_inch").innerHTML = inch;
     document.getElementById("mainguitar_content_item_price").innerHTML = price;
+
+    document.getElementById('adminEdit').href = "editTv?id="+id
 }

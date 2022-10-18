@@ -84,3 +84,25 @@ body {
     margin-top: 15px;
     border: none;
 }
+
+
+
+#giveyouup_box {
+    display: flex;
+}
+#giveyouup {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#dogs_box {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#dog_image {
+    width: 400px;
+    height: 400px;
+}

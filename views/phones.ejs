@@ -59,7 +59,7 @@
             <section id="shop_list_content">
             <%for (var i = 0; i < phones.length; i++) {%>
                 <!-- <%=phones[i]._id%> -->
-                    <div class="shop_box" onclick="selectPhone('<%=phones[i].name%>','<%=phones[i].manufacturer%>','<%=phones[i].gb%>','<%=phones[i].color%>','<%=phones[i].dpi%>','<%=phones[i].price%>')">
+                    <div class="shop_box" onclick="selectPhone('<%=phones[i].name%>','<%=phones[i].manufacturer%>','<%=phones[i].gb%>','<%=phones[i].color%>','<%=phones[i].dpi%>','<%=phones[i].price%>','<%=phones[i]._id%>')">
                     <div class="shop_data">
                         <div>
                             <div class="shop_name">
@@ -81,7 +81,12 @@
             </section>
         </div>
         <aside id="mainshop_box">
-            <div id="mainshop_headline">Selected Phone Name</div>
+            <div style="display: flex;">
+                <div id="mainshop_headline">Selected Phone Name</div>
+                <% if(isAdmin == true){ %>
+                    <a href="#" id="adminEdit">edit</a>
+                <% } %>
+            </div>
             <div id="mainshop_content_box">
                 <div id="mainshop_content_top">
                     <div id="mainshop_content_data">
@@ -145,7 +150,7 @@
                             <div>
                                 <i class="fa-light fa-mobile-notch"></i>
                             </div>
-                            <input name="name" type="text" placeholder="Phone name">
+                            <input required name="name" type="text" placeholder="Phone name">
                         </div>
                         <div class="register_item">
                             <div>
@@ -175,7 +180,7 @@
                             <div>
                                 <i class="fa-light fa-dollar-sign"></i>
                             </div>
-                            <input name="price" type="number" min=0 placeholder="Price">
+                            <input required name="price" type="number" min=0 placeholder="Price">
                         </div>
                         <button id="register_button" type="submit" class="btn btn-primary">Register</button>
                     </form>

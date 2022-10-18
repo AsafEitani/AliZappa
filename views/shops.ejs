@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
 </head>
 <body>
+    <!-- <%=isAdmin%> -->
     <nav id="nevbar">
         <div id="nev_left">
             <div id="logo">
@@ -65,11 +66,11 @@
             <%for (var i = 0; i < shops.length; i++) {%>
                 <!-- <%=shops[i]._id%> -->
                 <% if(shops[i].type == "Guitars Shop"){ %>
-                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/guitar-shop-logo.jpg','<%=shops[i].lat%>','<%=shops[i].lon%>')">
+                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/guitar-shop-logo.jpg','<%=shops[i].lat%>','<%=shops[i].lon%>','<%=shops[i]._id%>')">
                 <% } else if(shops[i].type == "Phones Shop") { %>
-                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/phone-shop-logo.png','<%=shops[i].lat%>','<%=shops[i].lon%>')">
+                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/phone-shop-logo.png','<%=shops[i].lat%>','<%=shops[i].lon%>','<%=shops[i]._id%>')">
                 <% } else if(shops[i].type == "TVs Shop") { %>
-                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/tv-shop-logo.png','<%=shops[i].lat%>','<%=shops[i].lon%>')">
+                    <div class="shop_box" onclick="selectShop('<%=shops[i].name%>','<%=shops[i].type%>','<%=shops[i].content%>','<%=shops[i].phoneNumber%>','<%=shops[i].email%>','<%=shops[i].website%>','img/tv-shop-logo.png','<%=shops[i].lat%>','<%=shops[i].lon%>','<%=shops[i]._id%>')">
                 <% } %>
                     <div class="shop_data">
                         <div>
@@ -104,7 +105,12 @@
             </section>
         </div>
         <aside id="mainshop_box">
-            <div id="mainshop_headline">Selected Shop Name</div>
+            <div style="display: flex;">
+                <div id="mainshop_headline">Selected Shop Name</div>
+                <% if(isAdmin == true){ %>
+                    <a href="#" id="adminEdit">edit</a>
+                <% } %>
+            </div>
             <div id="mainshop_content_box">
                 <div id="mainshop_content_top">
                     <div id="mainshop_content_data">
@@ -169,7 +175,7 @@
                             <div>
                                 <i class="fa-light fa-shop"></i>
                             </div>
-                            <input name="name" type="text" placeholder="Shop name">
+                            <input required name="name" type="text" placeholder="Shop name">
                         </div>
                         <div class="register_item">
                             <div>

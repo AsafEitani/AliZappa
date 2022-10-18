@@ -70,7 +70,7 @@
             <section id="shop_list_content">
             <%for (var i = 0; i < guitars.length; i++) {%>
                 <!-- <%=guitars[i]._id%> -->
-                    <div class="shop_box" onclick="selectGuitar('<%=guitars[i].name%>','<%=guitars[i].type%>','<%=guitars[i].manufacturer%>','<%=guitars[i].stringCount%>','<%=guitars[i].price%>')">
+                    <div class="shop_box" onclick="selectGuitar('<%=guitars[i].name%>','<%=guitars[i].type%>','<%=guitars[i].manufacturer%>','<%=guitars[i].stringCount%>','<%=guitars[i].price%>','<%=guitars[i]._id%>')">
                     <div class="shop_data">
                         <div>
                             <div class="shop_name">
@@ -98,7 +98,12 @@
             </section>
         </div>
         <aside id="mainshop_box">
-            <div id="mainshop_headline">Selected Guitar Name</div>
+            <div style="display: flex;">
+                <div id="mainshop_headline">Selected Guitar Name</div>
+                <% if(isAdmin == true){ %>
+                    <a href="#" id="adminEdit">edit</a>
+                <% } %>
+            </div>
             <div id="mainshop_content_box">
                 <div id="mainshop_content_top">
                     <div id="mainshop_content_data">
@@ -156,7 +161,7 @@
                             <div>
                                 <i class="fa-light fa-guitar"></i>
                             </div>
-                            <input name="name" type="text" placeholder="Guitar name">
+                            <input required name="name" type="text" placeholder="Guitar name">
                         </div>
                         <div class="register_item">
                             <div>
@@ -184,7 +189,7 @@
                             <div>
                                 <i class="fa-light fa-dollar-sign"></i>
                             </div>
-                            <input name="price" type="number" min=0 placeholder="Price">
+                            <input required name="price" type="number" min=0 placeholder="Price">
                         </div>
                         <button id="register_button" type="submit" class="btn btn-primary">Register</button>
                     </form>

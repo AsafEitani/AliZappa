@@ -8,7 +8,9 @@ mongoose.connect(connectionString)
  
 router.get('/login', (req, res) => {res.render("../views/login")});
 
-router.post('/loginAdmin', AdminController.login)
+router.post('/loginAdmin', AdminController.login);
+
+router.get('/adminPage', AdminController.adminPage);
  
  
 module.exports = router;

@@ -2,7 +2,11 @@ const Tv = require('../models/tvs');
 
 const list = (req, res) => {
     Tv.find().then(results => {
-        res.render("../views/tvs", { tvs: results });
+        if (!req.cookies.isAdmin) {
+            res.render("../views/tvs", { tvs: results, isAdmin: false });
+        } else {
+            res.render("../views/tvs", { tvs: results, isAdmin: true });
+        }
     });
 }
 
@@ -17,19 +21,22 @@ const getById = (req, res) => {
 }
 
 const create = (req, res) => {
- 
-    const newTv = new Tv({
-        name: req.body.name,
-        manufacturer: req.body.manufacturer,
-        inch: req.body.inch,
-        price: req.body.price
-    })
- 
-    newTv.save().then(() => {
-        res.redirect('/tvs');
-    }).catch(error => {
-        res.send('Already exists!' + error)
-    });
+    if (req.body.name == '') {
+        const newTv = new Tv({
+            name: req.body.name,
+            manufacturer: req.body.manufacturer,
+            inch: req.body.inch,
+            price: req.body.price
+        })
+     
+        newTv.save().then(() => {
+            res.redirect('/tvs');
+        }).catch(error => {
+            res.send('Already exists!' + error)
+        });
+    } else {
+        res.send('Empty name please dont do it!')
+    }
 }
 
 const search = (req, res) => {

@@ -2,7 +2,11 @@ const Guitar = require('../models/guitars');
 
 const list = (req, res) => {
     Guitar.find().then(results => {
-        res.render("../views/guitars", { guitars: results });
+        if (!req.cookies.isAdmin) {
+            res.render("../views/guitars", { guitars: results, isAdmin: false });
+        } else {
+            res.render("../views/guitars", { guitars: results, isAdmin: true });
+        }
     });
 }
 
@@ -17,20 +21,23 @@ const getById = (req, res) => {
 }
 
 const create = (req, res) => {
- 
-    const newGuitar = new Guitar({
-        name: req.body.name,
-        type: req.body.type,
-        manufacturer: req.body.manufacturer,
-        stringCount: req.body.stringCount,
-        price: req.body.price
-    })
- 
-    newGuitar.save().then(() => {
-        res.redirect('/guitars');
-    }).catch(error => {
-        res.send('Already exists!' + error)
-    });
+    if (req.body.name == '') {
+        const newGuitar = new Guitar({
+            name: req.body.name,
+            type: req.body.type,
+            manufacturer: req.body.manufacturer,
+            stringCount: req.body.stringCount,
+            price: req.body.price
+        })
+     
+        newGuitar.save().then(() => {
+            res.redirect('/guitars');
+        }).catch(error => {
+            res.send('Already exists!' + error)
+        });
+    } else {
+        res.send('Empty name please dont do it!')
+    }
 }
 
 const search = (req, res) => {

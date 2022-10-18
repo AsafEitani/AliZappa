@@ -2,7 +2,11 @@ const Phone = require('../models/phones');
 
 const list = (req, res) => {
     Phone.find().then(results => {
-        res.render("../views/phones", { phones: results });
+        if (!req.cookies.isAdmin) {
+            res.render("../views/phones", { phones: results, isAdmin: false });
+        } else {
+            res.render("../views/phones", { phones: results, isAdmin: true });
+        }
     });
 }
 
@@ -17,21 +21,24 @@ const getById = (req, res) => {
 }
 
 const create = (req, res) => {
- 
-    const newPhone = new Phone({
-        name: req.body.name,
-        manufacturer: req.body.manufacturer,
-        gb: req.body.gb,
-        color: req.body.color,
-        dpi: req.body.dpi,
-        price: req.body.price
-    })
- 
-    newPhone.save().then(() => {
-        res.redirect('/Phones');
-    }).catch(error => {
-        res.send('Already exists!' + error)
-    });
+    if (req.body.name == '') {
+        const newPhone = new Phone({
+            name: req.body.name,
+            manufacturer: req.body.manufacturer,
+            gb: req.body.gb,
+            color: req.body.color,
+            dpi: req.body.dpi,
+            price: req.body.price
+        })
+     
+        newPhone.save().then(() => {
+            res.redirect('/Phones');
+        }).catch(error => {
+            res.send('Already exists!' + error)
+        });
+    } else {
+        res.send('Empty name please dont do it!')
+    }
 }
 
 const search = (req, res) => {

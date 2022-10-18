@@ -7,7 +7,7 @@ const login = (req, res) => {
     }).then(user => {
         if (user) {
             res.cookie('isAdmin', true)
-            res.redirect('/shops');
+            res.redirect('/adminPage');
         } else
             res.send('Faild login');
     })
@@ -16,6 +16,15 @@ const login = (req, res) => {
     })
 }
 
+const adminPage = (req, res) => {
+    if (!req.cookies.isAdmin) {
+        res.send('Please login as admin!')
+    } else {
+        res.render("../views/admin");
+    }
+}
+
 module.exports = {
-    login
+    login,
+    adminPage
 }

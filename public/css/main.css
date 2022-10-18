@@ -366,3 +366,8 @@ form {
 .shop_type_icon_tag {
     margin-right: 5px;
 }
+
+#connected_section {
+    display: flex;
+    justify-content: center;
+}
