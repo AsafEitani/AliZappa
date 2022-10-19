@@ -93,11 +93,25 @@ const update = (req, res) => {
     }
 }
 
+const guitarByManufacturer = (req, res) => {
+    Guitar.aggregate([
+        {
+            $group: {
+                _id: "$manufacturer",
+                count: { $sum: 1 }
+            }
+        }
+    ]).then(results => {
+        res.send(results);
+    })
+}
+
 module.exports = {
     list,
     create,
     search,
     getById,
     deleteGuitar,
-    update
+    update,
+    guitarByManufacturer
 }

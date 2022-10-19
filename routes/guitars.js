@@ -18,5 +18,7 @@ router.post('/deleteGuitar', GuitarsController.deleteGuitar)
 
 router.post('/updateGuitar', GuitarsController.update)
  
+router.get('/guitarByManufacturer', GuitarsController.guitarByManufacturer)
+ 
  
 module.exports = router;

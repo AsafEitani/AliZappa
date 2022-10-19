@@ -18,5 +18,6 @@ router.post('/deleteTv', TvsController.deleteTv)
 
 router.post('/updateTv', TvsController.update)
  
- 
+router.get('/tvByManufacturer', TvsController.tvByManufacturer)
+
 module.exports = router;

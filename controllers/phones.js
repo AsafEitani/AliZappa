@@ -93,11 +93,25 @@ const update = (req, res) => {
     }
 }
 
+const phoneByManufacturer = (req, res) => {
+    Phone.aggregate([
+        {
+            $group: {
+                _id: "$manufacturer",
+                count: { $sum: 1 }
+            }
+        }
+    ]).then(results => {
+        res.send(results);
+    })
+}
+
 module.exports = {
     list,
     create,
     search,
     getById,
     deletePhone,
-    update
+    update,
+    phoneByManufacturer
 }

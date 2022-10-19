@@ -18,5 +18,6 @@ router.post('/deletePhone', PhoensController.deletePhone)
 
 router.post('/updatePhone', PhoensController.update)
  
+router.get('/phoneByManufacturer', PhoensController.phoneByManufacturer)
  
 module.exports = router;

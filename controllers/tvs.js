@@ -92,11 +92,25 @@ const update = (req, res) => {
     }
 }
 
+const tvByManufacturer = (req, res) => {
+    Tv.aggregate([
+        {
+            $group: {
+                _id: "$manufacturer",
+                count: { $sum: 1 }
+            }
+        }
+    ]).then(results => {
+        res.send(results);
+    })
+}
+
 module.exports = {
     list,
     create,
     search,
     getById,
     deleteTv,
-    update
+    update,
+    tvByManufacturer
 }

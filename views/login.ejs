@@ -34,10 +34,6 @@
                 <button id="update_button" type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
-		<section>
-		    <canvas id="canvas-tophat">
-			</canvas>
-		</section>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -45,37 +41,5 @@
     crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"></script>\
-	<script>
-        function drawTextAlongArc(context, str, centerX, centerY, radius, angle) {
-            var len = str.length, s;
-            context.save();
-            context.translate(centerX, centerY);
-            context.rotate(-1 * angle / 2);
-            context.rotate(-1 * (angle / len) / 2);
-            for (var n = 0; n < len; n++) {
-                context.rotate(angle / len);
-                context.save();
-                context.translate(0, -1 * radius);
-                s = str[n];
-                context.fillText(s, 0, 0);
-                context.restore();
-            }
-            context.restore();
-        }
-        var canvas = document.getElementById('canvas-tophat'),
-            context = canvas.getContext('3d'),
-            centerX = canvas.width / 2,
-            centerY = canvas.height - 30,
-            angle = Math.PI * 0.8,
-            radius = 70;
-
-        context.font = '25pt Calibri';
-        context.textAlign = 'center';
-        context.fillStyle = 'black';
-        context.strokeStyle = 'blue';
-        context.lineWidth = 4;
-        drawTextAlongArc(context, 'AliZappa', centerX, centerY, radius, angle)
-		
-    </script>
 </body>
 </html>
