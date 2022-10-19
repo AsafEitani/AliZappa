@@ -11,6 +11,16 @@
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<style>
+        .bar {
+            fill: steelblue;
+        }
+
+        .highlight {
+            fill: orange;
+        }
+    </style>
 </head>
 <body>
     <div id="giveyouup_box">
@@ -35,5 +45,114 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"></script>
     <script src="js/dogs.js"></script>
+	<svg width="600" height="500" id="guitars"></svg>
+	<svg width="600" height="500" id="phones"></svg>
+	<svg width="600" height="500" id="tvs"></svg>
+    <script>
+		$.ajax({
+            type: "GET", //rest Type
+            dataType: 'json', //mispelled
+            url: "http://127.0.0.1:3000/guitarByManufacturer",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+				data =[];
+				for (i = 0; i < msg.length; i++) {
+					data1 = { name: msg[i]['_id'], value: msg[i]['count'] }
+					data.push(data1)
+				}
+				var svg = d3.select("#guitars");
+				setGraph(svg, data);
+            }
+		});
+		$.ajax({
+            type: "GET", //rest Type
+            dataType: 'json', //mispelled
+            url: "http://127.0.0.1:3000/tvByManufacturer",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+				data =[];
+				for (i = 0; i < msg.length; i++) {
+					data1 = { name: msg[i]['_id'], value: msg[i]['count'] }
+					data.push(data1)
+				}
+				var svg = d3.select("#tvs");
+				setGraph(svg, data);
+            }
+		});
+		$.ajax({
+            type: "GET", //rest Type
+            dataType: 'json', //mispelled
+            url: "http://127.0.0.1:3000/phoneByManufacturer",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+				data =[];
+				for (i = 0; i < msg.length; i++) {
+					data1 = { name: msg[i]['_id'], value: msg[i]['count'] }
+					data.push(data1)
+				}
+				var svg = d3.select("#phones");
+				setGraph(svg, data);
+            }
+		});
+		function setGraph(svg, data){
+			var margin = 200;
+			width = svg.attr("width") - margin;
+			height = svg.attr("height") - margin;
+			svg.append("text")
+				.attr("transform", "translate(100,0)")
+				.attr("x", 50)
+				.attr("y", 50)
+				.attr("font-size", "24px")
+				.text("Products Sells In Chart Bar")
+			x = d3.scaleBand().range([0, width]).padding(0.4);
+			y = d3.scaleLinear().range([height, 0]);
+			g = svg.append("g")
+				.attr("transform", "translate(" + 100 + "," + 100 + ")");
+			
+			
+
+			x.domain(data.map(function (d) { return d.name; }));
+			y.domain([0, d3.max(data, function (d) { return d.value; })]);
+			g.append("g")
+				.attr("transform", "translate(0," + height + ")")
+				.call(d3.axisBottom(x))
+				.append("text")
+				.attr("y", height - 250)
+				.attr("x", width - 100)
+				.attr("text-anchor", "end")
+				.attr("stroke", "black")
+				.text("Manufacturer Names");
+			g.append("g")
+				.call(d3.axisLeft(y).tickFormat(function (d) {
+					return "Units-" + d;
+				}).ticks(10))
+				.append("text")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", "-5.1em") // the location of the "Quantity Text"
+
+				.attr("text-anchor", "end")
+				.attr("stroke", "black")
+				.text("Quantity");
+			g.selectAll(".bar")
+				.data(data)
+				.enter().append("rect")
+				.attr("class", "bar")
+				.attr("x", function (d) { return x(d.name); })
+				.attr("y", function (d) { return y(d.value); })
+				.attr("width", x.bandwidth())
+				.transition()
+				.ease(d3.easeLinear)
+				.duration(400)
+				.delay(function (d, i) {
+					return i * 50;
+				})
+				.attr("height", function (d) { return height - y(d.value); });
+			;
+		}
+    </script>
 </body>
 </html>
