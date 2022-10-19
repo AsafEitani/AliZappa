@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 .vs/AliZappa/v16/.suo
 
+=======
+node_modules
+mongo/node_modules
+>>>>>>> backend
